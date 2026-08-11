@@ -176,12 +176,11 @@ async def application_submit(
         "Не вказано",
     )
 
-    application_id = await create_application(
+application_id = await create_application(
     user_id=callback.from_user.id,
     username=username,
     rp_experience=experience,
 )
-
     from bot.handlers.admin import (
         send_application_to_admins,
     )

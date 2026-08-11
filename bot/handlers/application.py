@@ -176,11 +176,12 @@ async def application_submit(
         "Не вказано",
     )
 
-application_id = await create_application(
-    user_id=callback.from_user.id,
-    username=username,
-    rp_experience=experience,
-)
+    application_id = await create_application(
+        user_id=callback.from_user.id,
+        username=username,
+        rp_experience=experience,
+    )
+
     from bot.handlers.admin import (
         send_application_to_admins,
     )
@@ -229,7 +230,7 @@ async def application_restart(
 
 @router.callback_query(F.data == "app:cancel")
 async def application_cancel(
-    callback: Callback,
+    callback: CallbackQuery,
     state: FSMContext,
 ) -> None:
     await callback.answer()

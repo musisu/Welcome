@@ -1,32 +1,32 @@
 name: Telegram Bot
-
 on:
   workflow_dispatch:
-
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Create data directory
-        run: mkdir -p data
-
+      - name: Create .env
+        run: |
+          mkdir -p data
+          cat > .env << EOF
+          BOT_TOKEN=${{ secrets.BOT_TOKEN }}
+          ADMIN_CHAT_ID=${{ secrets.ADMIN_CHAT_ID }}
+          DATABASE_PATH=data/bot.db
+          EOF
+      - name: Check application.py
+        run: |
+          echo "=== application.py ==="
+          sed -n '1,130p' bot/handlers/application.py
+          echo "=== end ==="
       - name: Run bot
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
-          DATABASE_PATH: data/bot.db
         run: python main.py

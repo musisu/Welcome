@@ -25,14 +25,14 @@ def info_menu() -> InlineKeyboardMarkup:
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="🎭 Що таке ролівка?",
+                    text="🎭 Що таке текстова рольова?",
                     callback_data="info:rp",
                 )
             ],
             [
                 InlineKeyboardButton(
-                    text="🌎 Про Ріжце",
-                    callback_data="info:world",
+                    text="👹 Про Ріжце",
+                    callback_data="info:about",
                 )
             ],
             [
@@ -43,8 +43,14 @@ def info_menu() -> InlineKeyboardMarkup:
             ],
             [
                 InlineKeyboardButton(
-                    text="🎮 Як проходить гра?",
-                    callback_data="info:game",
+                    text="🖋️ Як написати пост?",
+                    callback_data="info:post",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🎭 Як написати анкету?",
+                    callback_data="info:character",
                 )
             ],
             [

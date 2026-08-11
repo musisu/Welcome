@@ -7,10 +7,7 @@ from aiogram.enums import ParseMode
 
 from bot.config import settings
 from bot.database.db import init_db
-
-from bot.handlers import common
-from bot.handlers import application
-from bot.handlers import admin
+from bot.handlers import admin, application, common
 
 
 async def main() -> None:
@@ -19,10 +16,8 @@ async def main() -> None:
         format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
     )
 
-  
     await init_db()
 
- 
     bot = Bot(
         token=settings.bot_token,
         default=DefaultBotProperties(
@@ -38,7 +33,6 @@ async def main() -> None:
 
     try:
         await dp.start_polling(bot)
-
     finally:
         await bot.session.close()
 

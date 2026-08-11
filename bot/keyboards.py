@@ -31,7 +31,7 @@ def info_menu() -> InlineKeyboardMarkup:
             ],
             [
                 InlineKeyboardButton(
-                    text="🌎 Про світ Ріжці",
+                    text="🌎 Про Ріжце",
                     callback_data="info:world",
                 )
             ],

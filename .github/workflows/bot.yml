@@ -1,20 +1,26 @@
 name: Telegram Bot
+
 on:
   workflow_dispatch:
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Create .env
         run: |
           mkdir -p data
@@ -23,10 +29,25 @@ jobs:
           ADMIN_CHAT_ID=${{ secrets.ADMIN_CHAT_ID }}
           DATABASE_PATH=data/bot.db
           EOF
-      - name: Check application.py
+
+      - name: DEBUG - check source code
         run: |
-          echo "=== application.py ==="
-          sed -n '1,130p' bot/handlers/application.py
-          echo "=== end ==="
+          echo "================================"
+          echo "COMMIT:"
+          git rev-parse HEAD
+          echo "================================"
+          echo "BRANCH:"
+          git branch --show-current
+          echo "================================"
+          echo "CALLBACK REFERENCES:"
+          grep -n "Callback" bot/handlers/application.py || true
+          echo "================================"
+          echo "LINES 100-120:"
+          sed -n '100,120p' bot/handlers/application.py
+          echo "================================"
+          echo "FILE:"
+          cat bot/handlers/application.py
+          echo "================================"
+
       - name: Run bot
         run: python main.py

@@ -108,7 +108,7 @@ async def rp_yes(
 
 @router.callback_query(F.data == "app:rp_no")
 async def rp_no(
-    callback: Callback,
+    callback: CallbackQuery,
     state: FSMContext,
 ) -> None:
     await callback.answer()

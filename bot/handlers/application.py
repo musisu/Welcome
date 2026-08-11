@@ -177,18 +177,10 @@ async def application_submit(
     )
 
     application_id = await create_application(
-        user_id=callback.from_user.id,
-        username=username,
-        data={
-            "name": username,
-            "age": "-",
-            "contact": username,
-            "rp_experience": experience,
-            "motivation": "-",
-            "desired_role": "-",
-            "extra": "-",
-        },
-    )
+    user_id=callback.from_user.id,
+    username=username,
+    rp_experience=experience,
+)
 
     from bot.handlers.admin import (
         send_application_to_admins,

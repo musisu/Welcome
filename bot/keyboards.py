@@ -49,7 +49,7 @@ def info_menu() -> InlineKeyboardMarkup:
             ],
             [
                 InlineKeyboardButton(
-                    text="🎭 Як написати анкету?",
+                    text="📝 Як написати анкету?",
                     callback_data="info:character",
                 )
             ],

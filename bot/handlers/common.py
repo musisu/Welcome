@@ -93,9 +93,10 @@ async def info_menu_callback(
     F.data.in_(
         {
             "info:rp",
-            "info:world",
+            "info:about",
             "info:rules",
-            "info:game",
+            "info:post",
+            "info:character",
         }
     )
 )

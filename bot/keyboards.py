@@ -56,7 +56,7 @@ def info_menu() -> InlineKeyboardMarkup:
             [
                 InlineKeyboardButton(
                     text="⬅️ Назад",
-                    callback_data="info:menu",
+                    callback_data="menu",
                 )
             ],
         ]
@@ -111,7 +111,7 @@ def back_keyboard() -> InlineKeyboardMarkup:
             [
                 InlineKeyboardButton(
                     text="⬅️ Назад",
-                    callback_data="menu",
+                    callback_data="info:menu",
                 )
             ]
         ]

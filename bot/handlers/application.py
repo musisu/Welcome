@@ -205,7 +205,7 @@ async def application_submit(
 
     await callback.message.edit_text(
         "✅ <b>Заявку надіслано!</b>\n"
-        "Уже майже в грі! ✨/n"
+        "Уже майже в грі! ✨\n"
         "Вашу заявку розглядає адміністрація та скоро з вами зв'яжеться."
         reply_markup=main_menu(),
     )

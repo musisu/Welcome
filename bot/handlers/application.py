@@ -44,7 +44,7 @@ async def application_start(
 
         await callback.message.answer(
             "🎭 Чи грав/грала ти раніше "
-            "в рольові ігри?",
+            "в текстові рольові ігри?",
             reply_markup=yes_no_keyboard(),
         )
 
@@ -84,7 +84,7 @@ async def username_received(
 
     await message.answer(
         "🎭 Чи грав/грала ти раніше "
-        "в рольові ігри?",
+        "в текстові рольові ігри?",
         reply_markup=yes_no_keyboard(),
     )
 
@@ -204,11 +204,9 @@ async def application_submit(
     await state.clear()
 
     await callback.message.edit_text(
-        "✅ <b>Заявку надіслано!</b>\n\n"
-        "Дякуємо за інтерес до Ріжці.\n\n"
-        "Адміністрація ознайомиться із заявкою "
-        "та, якщо буде потрібно, зв'яжеться "
-        "з тобою в Telegram.",
+        "✅ <b>Заявку надіслано!</b>\n"
+        "Уже майже в грі! ✨/n"
+        "Вашу заявку розглядає адміністрація та скоро з вами зв'яжеться."
         reply_markup=main_menu(),
     )
 
